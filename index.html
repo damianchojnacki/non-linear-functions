@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wizualiazcja funkcji nieliniowych</title>
+</head>
+<body class="bg-gray-900 text-white font-default min-h-screen flex justify-center items-center">
+    <div class="w-1/2 py-5">
+        <h1 class="text-3xl text-center font-light my-5">Rodzaj funkcji</h1>
+        <nav id="nav" class="flex justify-center bg-gray-700 font-alternative font-light px-5 py-1 rounded-t-lg text-gray-300 shadow-lg">
+            <button class="p-2 hover:text-white transition duration-150" data-type="exp">Wykładnicza</button>
+            <button class="p-2 hover:text-white transition duration-150" data-type="sin">Sinusoidalna</button>
+            <button class="p-2 hover:text-white transition duration-150" data-type="pulse">Pulsacyjna</button>
+            <button class="p-2 hover:text-white transition duration-150" data-type="linear">Jednostkowo-liniowa</button>
+        </nav>
+
+        <div class="bg-gray-600 rounded-b-lg shadow-lg font-default font-light">
+            <form class="h-0 overflow-hidden transition duration-300 flex justify-around items-center flex-wrap" id="exp">
+                <div id="exp-group"></div>
+
+                <button type="button" id="exp-submit" class="w-full my-5 px-3 py-2 font-bold rounded shadow-md bg-lime-500 hover:bg-lime-600 focus:outline-none">Dalej</button>
+                <canvas id="exp-chart" class="hidden opacity-0 transition duration-500"></canvas>
+            </form>
+
+            <form class="h-0 overflow-hidden transition duration-300 flex justify-around items-center flex-wrap" id="sin">
+                <div id="sin-group"></div>
+
+                <button type="button" id="sin-submit" class="w-full my-5 px-3 py-2 font-bold rounded shadow-md bg-lime-500 hover:bg-lime-600 focus:outline-none">Dalej</button>
+                <canvas id="sin-chart" class="hidden opacity-0 transition duration-500"></canvas>
+            </form>
+
+            <form class="h-0 overflow-hidden transition duration-300 flex justify-around items-center flex-wrap" id="pulse">
+                <div>
+                    <label for="pulse-t">T=</label>
+                    <input type="number" id="pulse-t" name="pulse-t" class="bg-transparent border-2 rounded border-gray-500 focus:outline-none focus:border-gray-400"/>
+                </div>
+
+                <div id="pulse-group"></div>
+
+                <button type="button" id="pulse-submit" class="w-full my-5 px-3 py-2 font-bold rounded shadow-md bg-lime-500 hover:bg-lime-600 focus:outline-none">Dalej</button>
+                <canvas id="pulse-chart" class="hidden opacity-0 transition duration-500"></canvas>
+            </form>
+
+            <form class="h-0 overflow-hidden transition duration-300 flex justify-around items-center flex-wrap" id="linear">
+                <div id="linear-group"></div>
+
+                <div class="flex justify-between w-full px-5 pt-5 text-sm">
+                    <button type="button" id="linear-add" class="px-3 py-2 font-bold rounded shadow-md bg-purple-500 hover:bg-purple-600 focus:outline-none">Dodaj</button>
+                    <button type="button" id="linear-submit" class="px-3 py-2 font-bold rounded shadow-md bg-lime-500 hover:bg-lime-600 focus:outline-none">Dalej</button>
+                </div>
+                <canvas id="linear-chart" class="hidden opacity-0 transition duration-500"></canvas>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
