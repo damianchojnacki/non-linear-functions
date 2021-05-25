@@ -1,6 +1,59 @@
 import './index.css';
 import Chart from 'chart.js/auto';
 
+function exp(x){
+	return Math.exp(x);
+}
+
+function sin(x){
+	return Math.sin(x);
+}
+
+function bisection(f, a, b, precision){
+	while(Math.abs(b - a) > precision){
+		let m = (a + b) / 2;
+		let f_a = f(a);
+		let f_b = f(b);
+		let f_m = f(m);
+
+		if(f_a == 0){
+			return a;
+		} 
+
+		if(f_b == 0){
+			return b;
+		} 
+
+		if(f_m == 0){
+			return m;
+		} 
+
+		if(f_a * f_m < 0){
+			b = m;
+		} else if(f_b * f_m < 0){
+			a = m;
+		} else{
+			return false;
+		}
+	}
+
+	return (a + b) / 2;
+}
+
+function newton(f, a, precision){
+	let x0 = a;
+	let f_x0 = f(x0);
+
+	while(Math.abs(f_x0) > precision){
+		let df = (f(x0 + precision) - f_x0) / precision;
+
+		x0 -= f_x0 / df;
+		f_x0 = f(x0);
+	}
+
+	return x0;
+}
+
 const data = {
 	exp: {
 		dataset: [],
